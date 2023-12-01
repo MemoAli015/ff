@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Barber Shop</title>
+    
+</head>
+<body>
+    <nav>
+        <i class="fa-solid fa-scissors" style="color: #e1ff00;" id="qayci"></i>
+        <a href="#"><i class="fa-solid fa-house" style="color: #ffffff;"></i><b>Ana Sehife</b></a>
+        <a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i><b>Ustalar  </b></a>
+        <a href="#"><b><i class="fa-solid fa-circle-info" style="color: #ffffff;"></i>Musteri Xidmeti</b></a>
+        <a href="#"><i class="fa-solid fa-phone" style="color: #ffffff;"></i><b>Elaqe</b></a>
+        <b id="Barber">Barber Shop </b>
+        <a href="#" id="Social"><i class="fa-brands fa-instagram" style="color: #ffffff;" id="so"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook" style="color: #ffffff;" id="so"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope" style="color: #ffffff;" id="so"></i></a>
+
+    </nav>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="home-hero.jpg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="hq720.jpg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="The-best-barbers-in-Camberwell.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            const translateValue = -currentIndex * 100 + '%';
+            slides.style.transform = 'translateX(' + translateValue + ')';
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        // Automatic slide transition every 3 seconds
+        setInterval(nextSlide, 3000);
+    </script>
+
+    
+</body>
+</html>
